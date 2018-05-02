@@ -4,6 +4,7 @@ package com.spitter.controller;
 import com.spitter.repository.repositoryDefinition.SpitterRepository;
 import com.spitter.repository.repositoryDefinition.SpittleRepository;
 import com.spitter.util.Spitter;
+import com.spitter.util.Spittle;
 import com.spitter.util.exceptions.DuplicateSpitterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,17 +22,22 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Controller
 @RequestMapping("/spitter")
 public class SpitterController {
 
-
     private SpitterRepository spitterRepository;
     private SpittleRepository spittleRepository;
+
     @Autowired
-    public SpitterController(SpittleRepository spittleRepository){
+    public SpitterController(SpittleRepository spittleRepository, SpitterRepository spitterRepository){
         this.spittleRepository = spittleRepository;
+        this.spitterRepository = spitterRepository;
     }
     @RequestMapping(value="/nesto", method = RequestMethod.GET)
     public String test(Model model){
@@ -58,9 +64,9 @@ public class SpitterController {
     }
     @RequestMapping(value = "/{spitter}", method = RequestMethod.GET)
     public String showProfilePage(@PathVariable("spitter") Long spitter, Model model){
-        if(!model.containsAttribute("spitter"));
+        if(!model.containsAttribute("spitter") && !model.containsAttribute("spittle"));
         model.addAttribute("spitter", spitterRepository.findOne(spitter));
-//        spitterRepository.saveSpitter(new Spitter("drugo@gmail.com", "username", "ludilce", "najvece"));
+        model.addAttribute("spittle", spitterRepository.findUserTweetsAndRetweets(spitter));
         return "Profile";
     }
     @RequestMapping(value="/asd", method = RequestMethod.GET)

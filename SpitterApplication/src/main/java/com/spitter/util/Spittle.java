@@ -10,13 +10,14 @@ import java.sql.Timestamp;
 
     @Entity
     public class Spittle {
+        //bid like :)
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "SPITTLE_ID")
         private Long id;
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name="SPITTER_ID", nullable = false)
+        @JoinColumn(name="SPITTER_ID")
         private Spitter spitter_id;
         @Column(name = "SPITTLE_MESSAGE")
         private String message;

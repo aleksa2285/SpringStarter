@@ -116,6 +116,7 @@
                                 <input type="text" class="form-control" id="search2" aria-describedby="search">
                                 <span class="glyphicon glyphicon-camera form-control-feedback" aria-hidden="true"></span>
                                 <span id="search2" class="sr-only">(success)</span>
+                                <button type="button" class="btn btn-primary">Primary</button>
                             </div>
                         </div>
                     </div>
@@ -145,16 +146,16 @@
             <br>
             <br>
             <br>
-            <div class="panel panel-default">
-                <div class="panel-heading">Prova</div>
-                <div class="panel-body">
-                    <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">Home</a></li>
-                        <li role="presentation"><a href="#">Profile</a></li>
-                        <li role="presentation"><a href="#">Messages</a></li>
-                    </ul>
-                </div>
-            </div>
+            <%--<div class="panel panel-default">--%>
+                <%--<div class="panel-heading">Prova</div>--%>
+                <%--<div class="panel-body">--%>
+                    <%--<ul class="nav nav-pills">--%>
+                        <%--<li role="presentation" class="active"><a href="#">Home</a></li>--%>
+                        <%--<li role="presentation"><a href="#">Profile</a></li>--%>
+                        <%--<li role="presentation"><a href="#">Messages</a></li>--%>
+                    <%--</ul>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
 
         <div class="col-sm-3">

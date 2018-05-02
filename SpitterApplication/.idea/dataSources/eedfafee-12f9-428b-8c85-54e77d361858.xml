@@ -23,131 +23,207 @@
     <schema id="17" parent="1" name="septembar"/>
     <schema id="18" parent="1" name="test"/>
     <table id="19" parent="2" name="comments"/>
-    <table id="20" parent="2" name="spitter"/>
-    <table id="21" parent="2" name="spittle"/>
-    <column id="22" parent="19" name="COMMENT_ID">
+    <table id="20" parent="2" name="reetweet"/>
+    <table id="21" parent="2" name="spitter"/>
+    <table id="22" parent="2" name="spittle"/>
+    <column id="23" parent="19" name="COMMENT_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="23" parent="19" name="SPITTLE_ID">
+    <column id="24" parent="19" name="SPITTLE_ID">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="24" parent="19" name="SPITTER_ID">
+    <column id="25" parent="19" name="REETWEET_ID">
       <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="25" parent="19" name="COMMENT_TIMESTAMP">
+    <column id="26" parent="19" name="SPITTER_ID">
       <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="27" parent="19" name="COMMENT_TIMESTAMP">
+      <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <column id="26" parent="19" name="COMMENT_MESSAGE">
-      <Position>5</Position>
+    <column id="28" parent="19" name="COMMENT_MESSAGE">
+      <Position>6</Position>
       <DataType>varchar(2048)|0</DataType>
     </column>
-    <column id="27" parent="19" name="COMMENT_LIKES">
-      <Position>6</Position>
+    <column id="29" parent="19" name="COMMENT_LIKES">
+      <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="28" parent="19" name="FK_RELATIONSHIP_2">
+    <index id="30" parent="19" name="FK_RELATIONSHIP_2">
       <ColNames>SPITTER_ID</ColNames>
     </index>
-    <index id="29" parent="19" name="FK_RELATIONSHIP_3">
+    <index id="31" parent="19" name="FK_RELATIONSHIP_3">
       <ColNames>SPITTLE_ID</ColNames>
     </index>
-    <key id="30" parent="19" name="PRIMARY">
+    <index id="32" parent="19" name="FK_RELATIONSHIP_6">
+      <ColNames>REETWEET_ID</ColNames>
+    </index>
+    <key id="33" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COMMENT_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="31" parent="19" name="FK_RELATIONSHIP_3">
+    <foreign-key id="34" parent="19" name="FK_RELATIONSHIP_3">
       <ColNames>SPITTLE_ID</ColNames>
       <RefSchemaName>spitterdb</RefSchemaName>
       <RefTableName>spittle</RefTableName>
       <RefColNames>SPITTLE_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="32" parent="19" name="FK_RELATIONSHIP_2">
+    <foreign-key id="35" parent="19" name="FK_RELATIONSHIP_6">
+      <ColNames>REETWEET_ID</ColNames>
+      <RefSchemaName>spitterdb</RefSchemaName>
+      <RefTableName>reetweet</RefTableName>
+      <RefColNames>REETWEET_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="36" parent="19" name="FK_RELATIONSHIP_2">
       <ColNames>SPITTER_ID</ColNames>
       <RefSchemaName>spitterdb</RefSchemaName>
       <RefTableName>spitter</RefTableName>
       <RefColNames>SPITTER_ID</RefColNames>
     </foreign-key>
-    <column id="33" parent="20" name="SPITTER_ID">
+    <column id="37" parent="20" name="REETWEET_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="34" parent="20" name="SPITTER_USERNAME">
+    <column id="38" parent="20" name="SPITTER_ID">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="39" parent="20" name="SPITTLE_ID">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="40" parent="20" name="RETWEET_MESSAGE">
+      <Position>4</Position>
+      <DataType>varchar(2048)|0</DataType>
+    </column>
+    <column id="41" parent="20" name="RETWEET_LONGITUDE">
+      <Position>5</Position>
+      <DataType>decimal(10)|0</DataType>
+    </column>
+    <column id="42" parent="20" name="RETWEET_LATITUDE">
+      <Position>6</Position>
+      <DataType>decimal(10)|0</DataType>
+    </column>
+    <column id="43" parent="20" name="RETWEET_LIKES">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="44" parent="20" name="RETWEET_COMMENTS">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="45" parent="20" name="RETWEET_TIMESTAMP">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="46" parent="20" name="FK_RELATIONSHIP_4">
+      <ColNames>SPITTER_ID</ColNames>
+    </index>
+    <index id="47" parent="20" name="FK_RELATIONSHIP_5">
+      <ColNames>SPITTLE_ID</ColNames>
+    </index>
+    <key id="48" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>REETWEET_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="20" name="FK_RELATIONSHIP_4">
+      <ColNames>SPITTER_ID</ColNames>
+      <RefSchemaName>spitterdb</RefSchemaName>
+      <RefTableName>spitter</RefTableName>
+      <RefColNames>SPITTER_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="20" name="FK_RELATIONSHIP_5">
+      <ColNames>SPITTLE_ID</ColNames>
+      <RefSchemaName>spitterdb</RefSchemaName>
+      <RefTableName>spittle</RefTableName>
+      <RefColNames>SPITTLE_ID</RefColNames>
+    </foreign-key>
+    <column id="51" parent="21" name="SPITTER_ID">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="52" parent="21" name="SPITTER_USERNAME">
       <Position>2</Position>
       <DataType>varchar(1024)|0</DataType>
     </column>
-    <column id="35" parent="20" name="SPITTER_EMAIL">
+    <column id="53" parent="21" name="SPITTER_EMAIL">
       <Position>3</Position>
       <DataType>varchar(1024)|0</DataType>
     </column>
-    <column id="36" parent="20" name="SPITTER_PASSWORD">
+    <column id="54" parent="21" name="SPITTER_PASSWORD">
       <Position>4</Position>
       <DataType>varchar(1024)|0</DataType>
     </column>
-    <column id="37" parent="20" name="SPITTER_PROFILE_PICTURE">
+    <column id="55" parent="21" name="SPITTER_PROFILE_PICTURE">
       <Position>5</Position>
       <DataType>varchar(1024)|0</DataType>
     </column>
-    <key id="38" parent="20" name="PRIMARY">
+    <key id="56" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SPITTER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="39" parent="21" name="SPITTLE_ID">
+    <column id="57" parent="22" name="SPITTLE_ID">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="40" parent="21" name="SPITTER_ID">
+    <column id="58" parent="22" name="SPITTER_ID">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="41" parent="21" name="SPITTLE_MESSAGE">
+    <column id="59" parent="22" name="SPITTLE_MESSAGE">
       <Position>3</Position>
       <DataType>varchar(2048)|0</DataType>
     </column>
-    <column id="42" parent="21" name="SPITTLE_TIMESTAMP">
+    <column id="60" parent="22" name="SPITTLE_TIMESTAMP">
       <Position>4</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <column id="43" parent="21" name="SPITTLE_LONGITUDE">
+    <column id="61" parent="22" name="SPITTLE_LONGITUDE">
       <Position>5</Position>
       <DataType>decimal(10)|0</DataType>
     </column>
-    <column id="44" parent="21" name="SPITTLE_LATITUDE">
+    <column id="62" parent="22" name="SPITTLE_LATITUDE">
       <Position>6</Position>
       <DataType>decimal(10)|0</DataType>
     </column>
-    <column id="45" parent="21" name="SPITTLE_LIKES">
+    <column id="63" parent="22" name="SPITTLE_LIKES">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="46" parent="21" name="SPITTLE_COMMENTS">
+    <column id="64" parent="22" name="SPITTLE_COMMENTS">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="47" parent="21" name="FK_RELATIONSHIP_1">
+    <index id="65" parent="22" name="FK_RELATIONSHIP_1">
       <ColNames>SPITTER_ID</ColNames>
     </index>
-    <key id="48" parent="21" name="PRIMARY">
+    <key id="66" parent="22" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SPITTLE_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="49" parent="21" name="FK_RELATIONSHIP_1">
+    <foreign-key id="67" parent="22" name="FK_RELATIONSHIP_1">
       <ColNames>SPITTER_ID</ColNames>
       <RefSchemaName>spitterdb</RefSchemaName>
       <RefTableName>spitter</RefTableName>

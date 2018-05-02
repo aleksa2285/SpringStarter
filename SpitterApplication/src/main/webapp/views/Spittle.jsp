@@ -29,7 +29,6 @@
                 Number of comments:
                 <c:out value="${spittle.comments}"/>
             </div>
-
     </div>
 </body>
 </html>

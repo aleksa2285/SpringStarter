@@ -20,6 +20,38 @@
         <p><c:out value="${spitter.password}" /></p>
         <p><c:out value="${spitter.pathProfle}" /></p>
     </div>
+        <c:forEach items="${spittle}" var="spittle" >
+            <c:catch var="exception">${spittle[0]}</c:catch>
+            <c:if test="${not empty exception}">
+            <div class="spittleView">
+            <div class="spittleMessage">
+                <c:out value="${spittle[1]}" />
+                <c:out value="${spittle[2]}" />
+                <c:out value="${spittle[3]}" />
+                <c:out value="${spittle[4]}" />
+                <c:out value="${spittle[5]}"/>
+            </div>
+            <div class="spittleTime">
+                Number of comments:
+                <c:out value="${spittle[6]}"/>
+            </div>
+        </div>
+            </c:if>
+            <div class="retweetView">
+                <div class="spittleMessage">
+                    <c:out value="${spittle[0]}" />
+                    <c:out value="${spittle[1]}" />
+                    <c:out value="${spittle[2]}" />
+                    <c:out value="${spittle[3]}" />
+                    <c:out value="${spittle[4]}" />
+                    <c:out value="${spittle[5]}"/>
+                </div>
+                <div class="spittleTime">
+                    Number of comments:
+                    <c:out value="${spittle[6]}"/>
+                </div>
+            </div>
+        </c:forEach>
 
 </body>
 </html>

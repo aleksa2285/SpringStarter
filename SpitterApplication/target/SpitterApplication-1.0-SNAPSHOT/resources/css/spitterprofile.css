@@ -46,5 +46,11 @@ div.panel-heading{
 .panel-info{
     border:1px lightgrey solid;
 }
+.retweetView{
+    background-color: coral;
+}
+.btn btn-primary{
+    float:right;
+}
 
 

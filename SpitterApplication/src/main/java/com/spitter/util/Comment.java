@@ -77,4 +77,16 @@ public class Comment {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", spitter_id=" + spitter_id +
+                ", spittle_id=" + spittle_id +
+                ", timestamp=" + timestamp +
+                ", message='" + message + '\'' +
+                ", likes=" + likes +
+                '}';
+    }
 }
